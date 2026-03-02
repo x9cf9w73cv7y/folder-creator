@@ -129,18 +129,18 @@ impl App for FolderCreatorApp {
                 ui.heading("📁 Neuer Ordner");
                 ui.add_space(20.0);
                 
-                // Großes Eingabefeld für den Ordnernamen
-                let text_edit = egui::TextEdit::multiline(&mut self.folder_name)
+                // Großes Eingabefeld für den Ordnernamen (eine Zeile)
+                let text_edit = egui::TextEdit::singleline(&mut self.folder_name)
                     .hint_text("Ordnername eingeben...")
                     .desired_width(400.0)
-                    .min_size(egui::vec2(400.0, 60.0))
+                    .min_size(egui::vec2(400.0, 40.0))
                     .font(egui::TextStyle::Heading)
-                    .margin(egui::vec2(12.0, 12.0));
+                    .margin(egui::vec2(12.0, 8.0));
                 
                 let response = ui.add(text_edit);
                 
                 // Enter-Taste zum Bestätigen
-                if response.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
+                if response.changed() && ctx.input(|i| i.key_pressed(egui::Key::Enter)) {
                     self.create_folder_structure();
                 }
                 

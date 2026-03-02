@@ -122,25 +122,45 @@ impl App for FolderCreatorApp {
                 });
             });
 
-            ui.add_space(20.0);
+            ui.add_space(30.0);
 
-            // Hauptbereich
-            ui.horizontal(|ui| {
-                ui.label("Ordnername:");
-                ui.text_edit_singleline(&mut self.folder_name);
+            // Hauptbereich - zentriert und prominent
+            ui.vertical_centered(|ui| {
+                ui.heading("📁 Neuer Ordner");
+                ui.add_space(20.0);
+                
+                // Großes Eingabefeld für den Ordnernamen
+                let text_edit = egui::TextEdit::multiline(&mut self.folder_name)
+                    .hint_text("Ordnername eingeben...")
+                    .desired_width(400.0)
+                    .min_size(egui::vec2(400.0, 60.0))
+                    .font(egui::TextStyle::Heading)
+                    .margin(egui::vec2(12.0, 12.0));
+                
+                let response = ui.add(text_edit);
+                
+                // Enter-Taste zum Bestätigen
+                if response.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
+                    self.create_folder_structure();
+                }
+                
+                ui.add_space(20.0);
+                
+                // Großer Button
+                let button = egui::Button::new("✅ Ordner erstellen")
+                    .min_size(egui::vec2(200.0, 50.0));
+                if ui.add(button).clicked() {
+                    self.create_folder_structure();
+                }
             });
 
-            ui.add_space(10.0);
-
-            if ui.button("📁 Ordner erstellen").clicked() {
-                self.create_folder_structure();
-            }
-
-            ui.add_space(20.0);
+            ui.add_space(30.0);
 
             // Statusmeldung
             if !self.status_message.is_empty() {
-                ui.colored_label(self.status_color, &self.status_message);
+                ui.vertical_centered(|ui| {
+                    ui.colored_label(self.status_color, &self.status_message);
+                });
             }
 
             ui.add_space(20.0);

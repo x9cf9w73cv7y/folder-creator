@@ -15,6 +15,7 @@ struct FolderCreatorApp {
     status_color: egui::Color32,
     show_options: bool,
     config_path: Option<PathBuf>,
+    initial_focus_done: bool,
 }
 
 impl FolderCreatorApp {
@@ -64,6 +65,7 @@ impl Default for FolderCreatorApp {
             status_color: egui::Color32::WHITE,
             show_options: false,
             config_path: Self::config_path(),
+            initial_focus_done: false,
         }
     }
 }
@@ -138,6 +140,12 @@ impl App for FolderCreatorApp {
                     .margin(egui::vec2(12.0, 8.0));
                 
                 let response = ui.add(text_edit);
+                
+                // Automatisch fokussieren beim Start
+                if !self.initial_focus_done {
+                    response.request_focus();
+                    self.initial_focus_done = true;
+                }
                 
                 // Enter-Taste zum Bestätigen
                 if response.changed() && ctx.input(|i| i.key_pressed(egui::Key::Enter)) {

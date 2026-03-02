@@ -10,7 +10,32 @@ Folder Creator is a graphical application that enables:
 - **Custom base paths**: Choose any base path where folders should be created
 - **Persistent settings**: The selected base path is saved and automatically loaded on the next startup
 
-## Prerequisites
+## Download
+
+### AppImage (Linux)
+
+The easiest way to use Folder Creator on Linux is to download the AppImage:
+
+1. Download `folder-creator-x86_64.AppImage` from the [Releases](https://github.com/x9cf9w73cv7y/folder-creator/releases) page
+2. Make it executable:
+   ```bash
+   chmod +x folder-creator-x86_64.AppImage
+   ```
+3. Run it:
+   ```bash
+   ./folder-creator-x86_64.AppImage
+   ```
+
+**Note:** AppImages are self-contained and work on most Linux distributions without installation.
+
+### Pre-built Binary
+
+You can also download the pre-built binary from the [Releases](https://github.com/x9cf9w73cv7y/folder-creator/releases) page:
+- **Linux**: `folder_creator-x86_64`
+- **macOS**: Build from source (see below)
+- **Windows**: Build from source (see below)
+
+## Prerequisites (for building from source)
 
 - [Rust](https://rust-lang.org/tools/install) (with Cargo)
 

@@ -1,47 +1,47 @@
 # Folder Creator
 
-Ein einfaches GUI-Programm zum Erstellen von Ordnerstrukturen mit persistierenden Einstellungen.
+A simple GUI application for creating folder structures with persistent settings.
 
-## Was macht dieses Programm?
+## What does this program do?
 
-Folder Creator ist eine grafische Anwendung, die es ermöglicht:
+Folder Creator is a graphical application that enables:
 
-- **Ordnerstrukturen zu erstellen**: Erstellt automatisch einen Hauptordner mit einem Unterordner `drive_c`
-- **Benutzerdefinierte Basispfade**: Wähle einen beliebigen Basispfad, in dem die Ordner erstellt werden sollen
-- **Persistente Einstellungen**: Der gewählte Basispfad wird gespeichert und beim nächsten Start automatisch geladen
+- **Creating folder structures**: Automatically creates a main folder with a `drive_c` subdirectory
+- **Custom base paths**: Choose any base path where folders should be created
+- **Persistent settings**: The selected base path is saved and automatically loaded on the next startup
 
-## Voraussetzungen
+## Prerequisites
 
-- [Rust](https://rust-lang.org/tools/install) (mit Cargo)
+- [Rust](https://rust-lang.org/tools/install) (with Cargo)
 
-## Kompilierung
+## Compilation
 
-1. Repository klonen:
+1. Clone the repository:
    ```bash
    git clone https://github.com/x9cf9w73cv7y/folder-creator.git
    cd folder-creator
    ```
 
-2. Projekt bauen:
+2. Build the project:
    ```bash
    cargo build --release
    ```
 
-3. Die ausführbare Datei findest du unter:
+3. The executable can be found at:
    - **Linux/macOS**: `target/release/folder_creator`
    - **Windows**: `target/release/folder_creator.exe`
 
-## Verwendung
+## Usage
 
-### Direkte Ausführung
+### Direct Execution
 
 ```bash
 cargo run
 ```
 
-### Als fertige Anwendung
+### As Compiled Application
 
-Nach der Kompilierung kannst du die Anwendung direkt starten:
+After compilation, you can run the application directly:
 
 **Linux/macOS:**
 ```bash
@@ -53,30 +53,47 @@ Nach der Kompilierung kannst du die Anwendung direkt starten:
 target\release\folder_creator.exe
 ```
 
-## Anleitung
+## Instructions
 
-1. **Basispfad einstellen** (optional):
-   - Klicke auf "⚙️ Optionen" um den Bereich zu erweitern
-   - Gib den gewünschten Basispfad ein oder klicke auf 📁 um einen Ordner auszuwählen
-   - Der Pfad wird automatisch gespeichert
+1. **Set Base Path** (optional):
+   - Click on "⚙️ Options" to expand the section
+   - Enter the desired base path or click 📁 to select a folder
+   - The path is automatically saved
 
-2. **Ordnername eingeben**:
-   - Gib im Hauptbereich einen Namen für den neuen Ordner ein
+2. **Enter Folder Name**:
+   - Enter a name for the new folder in the main section
 
-3. **Ordner erstellen**:
-   - Klicke auf "📁 Ordner erstellen"
-   - Die Anwendung erstellt:
-     - `[Basispfad]/[Ordnername]/`
-     - `[Basispfad]/[Ordnername]/drive_c/`
+3. **Create Folder**:
+   - Click "📁 Create Folder"
+   - The application creates:
+     - `[Base Path]/[Folder Name]/`
+     - `[Base Path]/[Folder Name]/drive_c/`
 
-## Konfiguration
+## Configuration
 
-Die Einstellungen werden in folgenden Verzeichnissen gespeichert:
+Settings are stored in the following directories:
 
 - **Linux**: `~/.config/folder_creator/config.json`
 - **Windows**: `%APPDATA%/folder_creator/config.json`
 - **macOS**: `~/Library/Application Support/folder_creator/config.json`
 
-## Lizenz
+## License
 
-Dieses Projekt steht unter einer Open-Source-Lizenz. Siehe [LICENSE](LICENSE) für Details (falls vorhanden).
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+
+See [LICENSE](LICENSE) for full details.
+
+Copyright (C) 2026
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
